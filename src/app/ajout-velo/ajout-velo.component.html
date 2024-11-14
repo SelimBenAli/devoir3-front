@@ -1,0 +1,50 @@
+<div class="container">
+  <div>
+    <h2>Ajouter une Velo :</h2>
+  </div>
+  <form>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>ID Velo</label>
+      <input type="text" [(ngModel)]="newVelo.idVelo"
+             name="id" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Model du Velo : </label>
+      <input type="text" [(ngModel)]="newVelo.modelVelo"
+             name="model" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Prix du Velo : </label>
+      <input type="number" [(ngModel)]="newVelo.prixVelo"
+             name="prix" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Type</label>
+      <select class="form-control form-control-lg" id="idType" name="idType"
+              [(ngModel)]="newIdType">
+        <option *ngFor="let t of types" [value]="t.idType" >
+          {{t.nomType}}
+        </option>
+      </select>
+    </div>
+
+
+    <div class="col-sm-16 col-md-16 col-lg-16">
+      <label class="mb-2">Image :</label>
+      <input type="file" (change)="onImageUpload($event)"
+      name="logo" class="form-control">
+      </div>
+
+      <div class="col-sm-16 col-md-16 col-lg-16">
+        <img [src]="imagePath" class="card-img-top img-fluid rounded-start"
+        style="width: 500px; height: 300px" />
+        </div>
+        
+
+    <div class="mt-2">
+      <button type="submit" (click)="ajoutVelo()" class="btn btn-success">Ajouter</button>
+
+    </div>
+  </form>
+</div>
